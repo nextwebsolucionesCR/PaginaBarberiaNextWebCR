@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicaciones | Barbería Premium</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Page Specific Styles */
+        .locations-hero {
+            height: 50vh;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #0a0a0a), url('img/hero/barberia_heroimagen2.jpg') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            padding: 0 40px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .loc-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .loc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-gold);
+        }
+
+        .loc-cover {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .loc-cover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, var(--bg-panel), transparent);
+        }
+
+        .loc-info {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .loc-title {
+            font-family: var(--font-heading);
+            color: var(--primary-gold);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .loc-address {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Map Tabs */
+        .map-tabs {
+            display: flex;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .map-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .map-tab:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .map-tab.active {
+            color: var(--primary-gold);
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        /* Map Container (Aspect Ratio) */
+        .map-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            position: relative;
+            background: #1a1a1a;
+        }
+
+        .map-pane {
+            display: none;
+            width: 100%;
+            height: 100%;
+            animation: fadeIn 0.5s;
+        }
+
+        .map-pane.active {
+            display: block;
+        }
+
+        .map-pane iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .loc-actions {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .locations-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px 60px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Reused -->
+    <!-- Navbar (Don Barber Style) -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Left: Logo -->
+            <a href="index.html" class="logo">BARBERIA<span>PURAVIDA</span></a>
+
+            <!-- Right: Utilities + Hamburger -->
+            <div class="nav-right">
+                <!-- Book CTA -->
+                <a href="reserva.html" class="nav-book-btn" data-i18n="nav_book">RESERVAR CITA</a>
+
+                <!-- Phone (Desktop) -->
+                <a href="tel:+50688888888" class="nav-phone">+506 8888-8888</a>
+
+                <!-- Lang -->
+                <button class="nav-lang">ES</button>
+
+                <!-- Hamburger -->
+                <div class="hamburger-minimal" id="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Hidden Full Menu (Overlay) -->
+            <div class="nav-overlay-menu" id="nav-menu">
+                <a href="index.html" class="overlay-link" data-i18n="nav_home">Inicio</a>
+                <a href="servicios.html" class="overlay-link" data-i18n="nav_services">Servicios</a>
+                <a href="reserva.html" class="overlay-link" data-i18n="nav_experts">Expertos</a>
+                <a href="index.html#contacto" class="overlay-link" data-i18n="nav_contact">Contacto</a>
+                <a href="acerca.html" class="overlay-link" data-i18n="nav_about">Nosotros</a>
+                <a href="ubicacion.html" class="overlay-link active" data-i18n="footer_location">Sedes</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <header class="locations-hero">
+        <h1 class="hero-title" style="font-size: 3rem;" data-i18n="loc_page_title">Nuestras Sedes</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-top: 10px;" data-i18n="loc_page_subtitle">
+            Encuentra el santuario de estilo más
+            cercano a ti</p>
+    </header>
+
+    <section class="locations-grid">
+
+        <!-- LOCATION 1: Central -->
+        <div class="loc-card">
+            <div class="loc-cover" style="background-image: url('img/hero/barberia_heroimagen1.jpg');"></div>
+            <div class="loc-info">
+                <h3 class="loc-title" data-i18n="loc_page_central_title">Sede Central - Imperial</h3>
+                <p class="loc-address"><i class="fas fa-map-marker-alt"
+                        style="color: var(--primary-gold); margin-right: 8px;"></i> <span
+                        data-i18n="loc_page_central_addr">Av. Segunda, Frente al Teatro Nacional, San José
+                        Centro.</span></p>
+                <div style="display: flex; gap: 10px;">
+                    <span class="badge valid" data-i18n="loc_badge_open">ABIERTO</span>
+                    <span style="color: #666; font-size: 0.9rem;" data-i18n="loc_close_8pm">Cierra a las 8:00 PM</span>
+                </div>
+            </div>
+
+            <div class="map-tabs">
+                <div class="map-tab active" onclick="switchMap(this, 'gmap-1')"><i class="fab fa-google"></i> Maps</div>
+                <div class="map-tab" onclick="switchMap(this, 'waze-1')"><i class="fab fa-waze"></i> Waze</div>
+            </div>
+
+            <div class="map-container">
+                <!-- Google Map -->
+                <div id="gmap-1" class="map-pane active">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30369.91943351015!2d-84.1118448!3d9.995218999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2scr!4v1769134528317!5m2!1ses-419!2scr"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <!-- Waze Map -->
+                <div id="waze-1" class="map-pane">
+                    <iframe src="https://embed.waze.com/iframe?zoom=16&lat=10.638865&lon=-85.428014&ct=livemap&pin=1"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="loc-actions">
+                <a href="https://goo.gl/maps/example" target="_blank" class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid #444; border-radius: 4px; color: #fff; text-decoration: none;"
+                    data-i18n="loc_btn_google">Ir
+                    con Google</a>
+                <a href="https://waze.com/ul?ll=9.995218,-84.111844&navigate=yes" target="_blank"
+                    class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid var(--primary-gold); border-radius: 4px; color: var(--primary-gold); text-decoration: none;"
+                    data-i18n="loc_btn_waze">Ir
+                    con Waze</a>
+            </div>
+        </div>
+
+        <!-- LOCATION 2: Liberia -->
+        <div class="loc-card">
+            <div class="loc-cover" style="background-image: url('img/hero/barberia_heroimagen2.jpg');"></div>
+            <div class="loc-info">
+                <h3 class="loc-title" data-i18n="loc_page_liberia_title">Sede Liberia - Ciudad Blanca</h3>
+                <p class="loc-address"><i class="fas fa-map-marker-alt"
+                        style="color: var(--primary-gold); margin-right: 8px;"></i> <span
+                        data-i18n="loc_page_liberia_addr">Plaza Santa Rosa, Local 12, Liberia, Guanacaste.</span></p>
+                <div style="display: flex; gap: 10px;">
+                    <span class="badge valid" data-i18n="loc_badge_open">ABIERTO</span>
+                    <span style="color: #666; font-size: 0.9rem;" data-i18n="loc_close_9pm">Cierra a las 9:00 PM</span>
+                </div>
+            </div>
+
+            <div class="map-tabs">
+                <div class="map-tab active" onclick="switchMap(this, 'gmap-2')"><i class="fab fa-google"></i> Maps</div>
+                <div class="map-tab" onclick="switchMap(this, 'waze-2')"><i class="fab fa-waze"></i> Waze</div>
+            </div>
+
+            <div class="map-container">
+                <div id="gmap-2" class="map-pane active">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d242644.97794482918!2d-85.43730575!3d10.4074698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2scr!4v1769134635426!5m2!1ses-419!2scr"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div id="waze-2" class="map-pane">
+                    <iframe src="https://embed.waze.com/iframe?zoom=16&lat=10.640046&lon=-85.424817&ct=livemap&pin=1"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="loc-actions">
+                <a href="https://goo.gl/maps/example" target="_blank" class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid #444; border-radius: 4px; color: #fff; text-decoration: none;"
+                    data-i18n="loc_btn_google">Ir
+                    con Google</a>
+                <a href="https://waze.com/ul?ll=10.640046,-85.424817&navigate=yes" target="_blank"
+                    class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid var(--primary-gold); border-radius: 4px; color: var(--primary-gold); text-decoration: none;"
+                    data-i18n="loc_btn_waze">Ir
+                    con Waze</a>
+            </div>
+        </div>
+
+        <!-- LOCATION 3: Papagayo -->
+        <div class="loc-card">
+            <div class="loc-cover" style="background-image: url('img/hero/barberia_heroimagen3.jpg');"></div>
+            <div class="loc-info">
+                <h3 class="loc-title" data-i18n="loc_page_papagayo_title">Sede Papagayo - Marina</h3>
+                <p class="loc-address"><i class="fas fa-map-marker-alt"
+                        style="color: var(--primary-gold); margin-right: 8px;"></i> <span
+                        data-i18n="loc_page_papagayo_addr">Marina Papagayo, Edificio Comercial, Local 5.</span></p>
+                <div style="display: flex; gap: 10px;">
+                    <span class="badge valid" data-i18n="loc_badge_open">ABIERTO</span>
+                    <span style="color: #666; font-size: 0.9rem;" data-i18n="loc_close_10pm">Cierra a las 10:00
+                        PM</span>
+                </div>
+            </div>
+
+            <div class="map-tabs">
+                <div class="map-tab active" onclick="switchMap(this, 'gmap-3')"><i class="fab fa-google"></i> Maps</div>
+                <div class="map-tab" onclick="switchMap(this, 'waze-3')"><i class="fab fa-waze"></i> Waze</div>
+            </div>
+
+            <div class="map-container">
+                <div id="gmap-3" class="map-pane active">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d242644.97794482918!2d-85.43730575!3d10.4074698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2scr!4v1769134687770!5m2!1ses-419!2scr"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div id="waze-3" class="map-pane">
+                    <iframe src="https://embed.waze.com/iframe?zoom=16&lat=10.641818&lon=-85.426190&ct=livemap&pin=1"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="loc-actions">
+                <a href="https://goo.gl/maps/example" target="_blank" class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid #444; border-radius: 4px; color: #fff; text-decoration: none;"
+                    data-i18n="loc_btn_google">Ir
+                    con Google</a>
+                <a href="https://waze.com/ul?ll=10.641818,-85.426190&navigate=yes" target="_blank"
+                    class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid var(--primary-gold); border-radius: 4px; color: var(--primary-gold); text-decoration: none;"
+                    data-i18n="loc_btn_waze">Ir
+                    con Waze</a>
+            </div>
+        </div>
+
+        <!-- LOCATION 4: Tamarindo -->
+        <div class="loc-card">
+            <div class="loc-cover"
+                style="background-image: url('img/hero/barberia_heroimagen1.jpg'); filter: hue-rotate(45deg);"></div>
+            <div class="loc-info">
+                <h3 class="loc-title" data-i18n="loc_page_tamarindo_title">Sede Tamarindo - Surf & Cut</h3>
+                <p class="loc-address"><i class="fas fa-map-marker-alt"
+                        style="color: var(--primary-gold); margin-right: 8px;"></i> <span
+                        data-i18n="loc_page_tamarindo_addr">Calle Principal, Frente al Hotel Diria, Tamarindo.</span>
+                </p>
+                <div style="display: flex; gap: 10px;">
+                    <span class="badge valid" data-i18n="loc_badge_open">ABIERTO</span>
+                    <span style="color: #666; font-size: 0.9rem;" data-i18n="loc_close_8pm">Cierra a las 8:00 PM</span>
+                </div>
+            </div>
+
+            <div class="map-tabs">
+                <div class="map-tab active" onclick="switchMap(this, 'gmap-4')"><i class="fab fa-google"></i> Maps</div>
+                <div class="map-tab" onclick="switchMap(this, 'waze-4')"><i class="fab fa-waze"></i> Waze</div>
+            </div>
+
+            <div class="map-container">
+                <div id="gmap-4" class="map-pane active">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d242644.97794482918!2d-85.43730575!3d10.4074698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2scr!4v1769134725096!5m2!1ses-419!2scr"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div id="waze-4" class="map-pane">
+                    <iframe src="https://embed.waze.com/iframe?zoom=16&lat=10.633612&lon=-85.436747&ct=livemap&pin=1"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="loc-actions">
+                <a href="https://goo.gl/maps/example" target="_blank" class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid #444; border-radius: 4px; color: #fff; text-decoration: none;"
+                    data-i18n="loc_btn_google">Ir
+                    con Google</a>
+                <a href="https://waze.com/ul?ll=10.633612,-85.436747&navigate=yes" target="_blank"
+                    class="btn-outline-small"
+                    style="text-align: center; display: block; padding: 10px; border: 1px solid var(--primary-gold); border-radius: 4px; color: var(--primary-gold); text-decoration: none;"
+                    data-i18n="loc_btn_waze">Ir
+                    con Waze</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Reused -->
+    <footer class="netflix-footer">
+        <div class="container">
+            <div class="footer-copyright">
+                &copy; 2024 Barbería Premium. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons Reused -->
+    <div class="floating-contact">
+        <a href="tel:+50688888888" class="float-btn phone" title="Llamar">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/50688888888" target="_blank" class="float-btn whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        function switchMap(tab, mapId) {
+            // Find parent card
+            const card = tab.closest('.loc-card');
+
+            // Toggle Tabs
+            card.querySelectorAll('.map-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Toggle Maps
+            card.querySelectorAll('.map-pane').forEach(p => p.classList.remove('active'));
+            card.querySelector('#' + mapId).classList.add('active');
+        }
+    </script>
+    <!-- NextWeb Floating Watermark -->
+    <a href="#" class="nextweb-floating">
+        <img src="img/nextweb_logo.jpg" alt="NextWeb CR">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <script src="js/translations.js?v=10"></script>
+    <script src="js/protection.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69768af23959f4197f8394b6/1jfrgtgsl';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

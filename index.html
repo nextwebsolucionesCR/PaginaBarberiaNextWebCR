@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería PuraVida | Estilo & Elegancia</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=8">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("YzFiwIqHi6Kf0xIUT");
+        })();
+    </script>
+    <style>
+        /* NUCLEAR OVERRIDE FOR SUBMIT BUTTON */
+        #contact-form #submit-btn,
+        #submit-btn {
+            background-color: var(--primary-gold, #D4AF37) !important;
+            color: #000 !important;
+            border: 2px solid var(--primary-gold, #D4AF37) !important;
+            opacity: 1 !important;
+            z-index: 100 !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            transition: all 0.3s ease !important;
+            transform: scale(1);
+            /* Flex for Icon */
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* NEW HOVER EFFECT (Clean Swap) */
+        #contact-form #submit-btn:hover,
+        #submit-btn:hover {
+            background-color: #000 !important;
+            /* Black Background */
+            color: var(--primary-gold, #D4AF37) !important;
+            /* Gold Text */
+            border-color: var(--primary-gold, #D4AF37) !important;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4) !important;
+            /* Gold Glow */
+            transform: scale(1.05) !important;
+            /* Subtle Zoom */
+            cursor: pointer;
+        }
+
+        /* ICON ANIMATION */
+        #submit-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        #submit-btn:hover i {
+            transform: translate(5px, -5px) scale(1.1);
+            /* Fly away effect */
+        }
+
+        /* KILL THE RED BAR (Pseudo-elements) */
+        #submit-btn::before,
+        #submit-btn::after {
+            display: none !important;
+            content: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spotlight"></div>
+
+    <!-- Navbar (Don Barber Style) -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Left: Logo -->
+            <a href="index.html" class="logo">BARBERIA<span>PURAVIDA</span></a>
+
+            <!-- Right: Utilities + Hamburger -->
+            <div class="nav-right">
+                <!-- Book CTA -->
+                <a href="reserva.html" class="nav-book-btn" data-i18n="nav_book">RESERVAR CITA</a>
+
+                <!-- Phone (Desktop) -->
+                <a href="tel:+50688888888" class="nav-phone">+506 8888-8888</a>
+
+                <!-- Lang -->
+                <button class="nav-lang">ES</button>
+
+                <!-- Hamburger -->
+                <div class="hamburger-minimal" id="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Hidden Full Menu (Overlay) - Logic in app.js triggers this -->
+            <div class="nav-overlay-menu" id="nav-menu">
+                <a href="#inicio" class="overlay-link" data-i18n="nav_home">Inicio</a>
+                <a href="servicios.html" class="overlay-link" data-i18n="nav_services">Servicios</a>
+                <a href="reserva.html" class="overlay-link" data-i18n="nav_experts">Expertos</a>
+                <a href="#contacto" class="overlay-link" data-i18n="nav_contact">Contacto</a>
+                <a href="acerca.html" class="overlay-link" data-i18n="nav_about">Nosotros</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Don Barber Style Split Hero -->
+    <header class="hero-split-container" id="inicio">
+
+        <!-- LEFT COLUMN: VIDEO & SERVICES (Dark) -->
+        <div class="hero-visual">
+            <div class="hero-overlay"></div>
+
+            <!-- Reuse Existing Slider as Background -->
+            <div class="hero-slider" id="heroSlider">
+                <div class="hero-slide active" data-type="video" data-duration="0">
+                    <video autoplay muted playsinline class="slide-media" poster="img/hero/barberia_heroimagen1.jpg">
+                        <source src="img/hero/barberia_herovideo1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="hero-slide" data-type="image" data-duration="5000">
+                    <img src="img/hero/barberia_heroimagen1.jpg" class="slide-media" alt="Hero 1">
+                </div>
+                <div class="hero-slide" data-type="image" data-duration="5000">
+                    <img src="img/hero/barberia_heroimagen2.jpg" class="slide-media" alt="Hero 2">
+                </div>
+            </div>
+
+            <!-- Big Navigation Links (Imitating Don Barber) -->
+            <div class="hero-jumbo-nav">
+                <h5 class="jumbo-subtitle" data-i18n="hero_jumbo_subtitle">EXPERIENCIA PREMIUM</h5>
+                <ul class="jumbo-menu">
+                    <li><a href="servicios.html" class="jumbo-link" data-i18n="hero_catalog">CATÁLOGO <br>SERVICIOS</a>
+                    </li>
+                    <li><a href="#contacto" class="jumbo-link" data-i18n="hero_contact">CONTACTO</a></li>
+                    <li><a href="acerca.html" class="jumbo-link" data-i18n="hero_about">NOSOTROS</a></li>
+                    <li><a href="reserva.html" class="jumbo-link" data-i18n="hero_book">RESERVAR <br>CITA</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: EDITORIAL/PRODUCTS (Light) -->
+        <div class="hero-editorial">
+            <div class="editorial-content">
+                <h4 class="editorial-eyebrow" data-i18n="hero_exclusive">BARBERIA PURAVIDA EXCLUSIVES admin</h4>
+
+                <div class="editorial-image-box">
+                    <img src="img/local/localimagen.jpg" alt="Local Experience" class="editorial-img">
+                </div>
+
+                <div class="editorial-actions">
+                    <p class="editorial-text" data-i18n="hero_desc">Descubre la colección de productos para el cuidado
+                        del caballero.</p>
+                    <a href="ubicacion.html" class="btn-editorial" data-i18n="hero_btn_locales">VER LOCALES</a>
+                </div>
+            </div>
+
+            <!-- MARQUEE TICKER (Moved Inside Right Column for perfect alignment) -->
+            <div class="hero-marquee">
+                <div class="marquee-content">
+                    <span>BIENVENIDO A BARBERIA PURAVIDA PREMIUM &bull; ESTILO Y ELEGANCIA &bull; CORTES CLÁSICOS &bull;
+                        AFEITADO
+                        TRADICIONAL &bull; </span>
+                    <span>BIENVENIDO A BARBERIA PURAVIDA PREMIUM &bull; ESTILO Y ELEGANCIA &bull; CORTES CLÁSICOS &bull;
+                        AFEITADO
+                        TRADICIONAL &bull; </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <!-- PREMIUM SHOWCASE (BENTO GRID) -->
+    <section id="showcase" class="showcase-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-i18n="showcase_title">ESCAPARATE PREMIUM</h2>
+                <div class="gold-separator mx-auto"></div>
+                <p class="section-subtitle" data-i18n="showcase_subtitle">Selección exclusiva de la semana</p>
+            </div>
+
+            <!-- Dynamic Grid Container -->
+            <div id="bento-grid" class="bento-grid">
+                <!-- Javascript will render cards here -->
+                <div class="bento-loader">
+                    <i class="fas fa-circle-notch fa-spin"></i> <span data-i18n="showcase_loading">Cargando
+                        colección...</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="servicios.html" class="btn-premium-gold" data-i18n="showcase_btn_full">VER CATÁLOGO
+                    COMPLETO</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PREMIUM ACCORDION LOCATIONS (UNIQUE DESIGN) -->
+    <section class="premium-accordion-section" id="ubicacion-preview">
+        <div class="container" style="position: relative;">
+            <div class="accordion-header text-center mb-5 md-mb-0">
+                <i class="fas fa-compass mb-2" style="font-size: 2rem; color: var(--primary-gold);"></i>
+                <h2 class="section-title" data-i18n="loc_title">NUESTROS TERRITORIOS</h2>
+                <p class="section-subtitle" data-i18n="loc_subtitle">Explora la excelencia en cada destino</p>
+            </div>
+
+
+
+            <!-- Locations Wrapper -->
+            <div class="accordion-container">
+                <!-- CARD 1: CENTRAL -->
+                <div class="acc-card active">
+                    <div class="acc-bg" style="background-image: url('img/local/barberia_central.jpg');"></div>
+                    <div class="acc-overlay"></div>
+                    <div class="acc-content">
+                        <div class="acc-icon-box"><i class="fas fa-crown"></i></div>
+                        <h3 class="acc-title" data-i18n="loc_central">SEDE CENTRAL</h3>
+                        <p class="acc-desc" data-i18n="loc_central_desc">El origen del legado. Frente al Teatro
+                            Nacional.</p>
+                        <a href="ubicacion.html" class="acc-btn"><span data-i18n="loc_explore">EXPLORAR</span> <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="acc-label-vertical">
+                        <span>CENTRAL</span>
+                    </div>
+                </div>
+
+                <!-- CARD 2: LIBERIA -->
+                <div class="acc-card">
+                    <div class="acc-bg" style="background-image: url('img/local/barberia_liberia.jpg');"></div>
+                    <div class="acc-overlay"></div>
+                    <div class="acc-content">
+                        <div class="acc-icon-box"><i class="fas fa-umbrella-beach"></i></div>
+                        <h3 class="acc-title" data-i18n="loc_liberia">SEDE LIBERIA</h3>
+                        <p class="acc-desc" data-i18n="loc_liberia_desc">Estilo impecable en la Ciudad Blanca.</p>
+                        <a href="ubicacion.html" class="acc-btn"><span data-i18n="loc_explore">EXPLORAR</span> <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="acc-label-vertical">
+                        <span>LIBERIA</span>
+                    </div>
+                </div>
+
+                <!-- CARD 3: PAPAGAYO -->
+                <div class="acc-card">
+                    <div class="acc-bg" style="background-image: url('img/local/barberia_papagayo.jpg');"></div>
+                    <div class="acc-overlay"></div>
+                    <div class="acc-content">
+                        <div class="acc-icon-box"><i class="fas fa-anchor"></i></div>
+                        <h3 class="acc-title" data-i18n="loc_papagayo">PAPAGAYO</h3>
+                        <p class="acc-desc" data-i18n="loc_papagayo_desc">Lujo y precisión en la marina exclusiva.</p>
+                        <a href="ubicacion.html" class="acc-btn"><span data-i18n="loc_explore">EXPLORAR</span> <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="acc-label-vertical">
+                        <span>PAPAGAYO</span>
+                    </div>
+                </div>
+
+                <!-- CARD 4: TAMARINDO -->
+                <div class="acc-card">
+                    <div class="acc-bg" style="background-image: url('img/local/barberia_tamarindo.jpg');">
+                    </div>
+                    <div class="acc-overlay"></div>
+                    <div class="acc-content">
+                        <div class="acc-icon-box"><i class="fas fa-sun"></i></div>
+                        <h3 class="acc-title" data-i18n="loc_tamarindo">TAMARINDO</h3>
+                        <p class="acc-desc" data-i18n="loc_tamarindo_desc">Vibra tropical, corte magistral.</p>
+                        <a href="ubicacion.html" class="acc-btn"><span data-i18n="loc_explore">EXPLORAR</span> <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="acc-label-vertical">
+                        <span>TAMARINDO</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (CRYSTAL PRISM) -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <i class="fas fa-gem mb-3" style="font-size: 2rem; color: var(--primary-gold);"></i>
+                <h2 class="section-title" data-i18n="rev_title">VOCES DE NUESTROS CLIENTES</h2>
+                <div class="gold-separator mx-auto"></div>
+                <p class="section-subtitle" data-i18n="rev_subtitle">Experiencias reales, estilo inconfundible</p>
+            </div>
+
+            <!-- Prism Scrolling Track -->
+            <div class="reviews-wrapper">
+                <div id="reviews-track" class="reviews-track">
+                    <!-- JS will inject .prism-card here -->
+                    <div class="prism-loader">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <button onclick="openReviewModal()" class="btn-outline-gold"><span data-i18n="rev_btn">DEJAR MI
+                        OPINIÓN</span> <i class="fas fa-pen-nib"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW REVIEW MODAL -->
+    <div id="new-review-modal" class="modal-prism-overlay">
+        <div class="modal-prism-content">
+            <button class="modal-prism-close" onclick="closeReviewModal()">&times;</button>
+            <h3 data-i18n="rev_modal_title">COMPARTE TU EXPERIENCIA</h3>
+            <p data-i18n="rev_modal_desc">Tu opinión nos ayuda a perfeccionar nuestro arte.</p>
+
+            <form id="newReviewForm" onsubmit="submitReview(event)">
+                <div class="rating-group">
+                    <input type="radio" name="rating" id="star5" value="5" checked /><label for="star5">★</label>
+                    <input type="radio" name="rating" id="star4" value="4" /><label for="star4">★</label>
+                    <input type="radio" name="rating" id="star3" value="3" /><label for="star3">★</label>
+                    <input type="radio" name="rating" id="star2" value="2" /><label for="star2">★</label>
+                    <input type="radio" name="rating" id="star1" value="1" /><label for="star1">★</label>
+                </div>
+
+                <div class="prism-form-grid">
+                    <div class="prism-input-wrapper">
+                        <i class="fas fa-user-astronaut input-icon"></i>
+                        <input type="text" id="newReviewName" class="prism-input" placeholder=" " required>
+                        <label class="prism-label" data-i18n="rev_label_name">Tu Nombre</label>
+                    </div>
+
+                    <div class="prism-input-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="newReviewEmail" class="prism-input" placeholder=" ">
+                        <label class="prism-label" data-i18n="rev_label_email">Correo (Opcional)</label>
+                    </div>
+                </div>
+
+                <div class="prism-input-wrapper full-width">
+                    <i class="fas fa-quote-right input-icon"></i>
+                    <textarea id="newReviewText" class="prism-input" rows="3" placeholder=" " required></textarea>
+                    <label class="prism-label" data-i18n="rev_label_msg">Cuéntanos tu experiencia...</label>
+                </div>
+
+                <button type="submit" id="btn-submit-review" class="btn-gold-full" data-i18n="rev_btn_submit">ENVIAR
+                    RESEÑA</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- RESOURCE CENTER SECTION -->
+    <section id="resource-center" class="resource-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="res_title">CENTRO DE RECURSOS</h2>
+                <div class="gold-separator mx-auto"></div>
+                <p class="section-subtitle" data-i18n="res_subtitle">Material exclusivo para nuestros miembros</p>
+            </div>
+
+            <div class="resource-grid">
+                <!-- Card 1: PDF Guide 1 -->
+                <div class="resource-card">
+                    <div class="res-icon-wrapper">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="res-card-title" data-i18n="res_card_1_title">Dominio del Marcado</h3>
+                    <p class="res-card-desc" data-i18n="res_card_1_desc">Técnica perfecta para frentes.</p>
+                    <a href="recursosArchivos/Guia_marcar_frente_corte_de_pelo.pdf" download class="btn-resource">
+                        <span data-i18n="res_btn_pdf">DESCARGAR PDF</span> <i class="fas fa-download"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: PDF Guide 2 -->
+                <div class="resource-card">
+                    <div class="res-icon-wrapper">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="res-card-title" data-i18n="res_card_2_title">Ciencia del Fade</h3>
+                    <p class="res-card-desc" data-i18n="res_card_2_desc">Guía de sombreados y transiciones.</p>
+                    <a href="recursosArchivos/Guia_tipos_de_sombreado_cortes_de_pelo.pdf" download class="btn-resource">
+                        <span data-i18n="res_btn_pdf">DESCARGAR PDF</span> <i class="fas fa-download"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: Video -->
+                <div class="resource-card">
+                    <div class="res-icon-wrapper">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="res-card-title" data-i18n="res_card_3_title">El Manifiesto</h3>
+                    <p class="res-card-desc" data-i18n="res_card_3_desc">Nuestra filosofía visual.</p>
+                    <a href="recursosArchivos/barberiaPuraVida.mp4" download class="btn-resource">
+                        <span data-i18n="res_btn_video">DESCARGAR VIDEO</span> <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contacto" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="contact_title">Contáctanos</h2>
+                <div class="section-subtitle" data-i18n="contact_subtitle">Estamos listos para atenderte</div>
+            </div>
+
+            <div class="contact-container">
+                <form id="contact-form" class="premium-form">
+                    <!-- Honeypot -->
+                    <div class="form-group honeypot" style="display:none;">
+                        <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="narrative-container">
+                        <p class="narrative-text">
+                            <span data-i18n="contact_narrative_1">Hola, mi nombre es:</span>
+                            <input type="text" id="user_name" name="user_name" class="narrative-input"
+                                placeholder="Tu Nombre aquí" data-i18n-placeholder="contact_placeholder_name" required>
+                            <span data-i18n="contact_narrative_2">y me gustaría contactar con la barbería</span>
+                        </p>
+                        <p class="narrative-text">
+                            <span data-i18n="contact_narrative_3">Estoy interesado en reservar un servicio de</span>
+                            <span class="narrative-select-wrapper">
+                                <select id="user_service" name="user_service" class="narrative-select">
+                                    <option value="Corte Clásico">Corte Clásico</option>
+                                    <option value="Barba y Afeitado">Barba y Afeitado</option>
+                                    <option value="Tinte y Color">Tinte y Color</option>
+                                    <option value="Tratamiento Facial">Tratamiento Facial</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </span><span data-i18n="contact_narrative_4"> </span>
+                        </p>
+                        <p class="narrative-text">
+                            <span data-i18n="contact_narrative_5">Pueden contactarme a mi correo</span>
+                            <input type="email" id="user_email" name="user_email" class="narrative-input"
+                                placeholder="tu@email.com" data-i18n-placeholder="contact_placeholder_email" required>
+                            <span data-i18n="contact_narrative_6">o a mi teléfono</span>
+                            <input type="tel" id="user_phone" name="user_phone" class="narrative-input"
+                                placeholder="8888-8888" data-i18n-placeholder="contact_placeholder_phone">
+                        </p>
+                        <p class="narrative-text">
+                            <span data-i18n="contact_narrative_8">Además, quería comentarles lo siguiente:</span>
+                            <br>
+                            <textarea id="message" name="message" class="narrative-textarea" rows="2"
+                                placeholder="Escribe tu mensaje aquí..." data-i18n-placeholder="contact_placeholder_msg"
+                                required></textarea>
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 40px; text-align: center;">
+                        <button type="submit" id="submit-btn" class="btn-gold-narrative">
+                            <span data-i18n="contact_btn_send">ENVIAR MI MENSAJE</span> <i
+                                class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+
+                    <div id="form-status" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- NETFLIX STYLE FOOTER -->
+    <footer class="netflix-footer">
+        <div class="container">
+            <div class="footer-top">
+                <span data-i18n="footer_questions">¿Preguntas? Llama al</span> <a href="tel:+50688888888">8888-8888</a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#inicio" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="servicios.html" data-i18n="nav_services">Servicios</a></li>
+                    <li><a href="reserva.html" data-i18n="nav_experts">Expertos</a></li>
+                    <li><a href="#contacto" data-i18n="nav_contact">Contáctanos</a></li>
+                    <li><a href="#" data-i18n="footer_privacy">Privacidad</a></li>
+                    <li><a href="#" data-i18n="footer_terms">Términos de uso</a></li>
+                    <li><a href="#" data-i18n="footer_hours">Horarios</a></li>
+                    <li><a href="ubicacion.html" data-i18n="footer_location">Ubicación</a></li>
+                    <li><a href="noticias.html" data-i18n="nav_news">Noticias</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 Barbería PuraVida Premium. <span data-i18n="footer_rights">Todos los derechos
+                    reservados.</span>
+                <a href="login.html" class="admin-portal-link"><i class="fas fa-lock"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NextWeb Floating Watermark -->
+    <a href="#" class="nextweb-floating">
+        <img src="img/nextweb_logo.jpg" alt="NextWeb CR">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <!-- Scripts -->
+    <!-- NETFLIX STYLE MODAL -->
+    <div id="expert-modal" class="netflix-modal-backdrop">
+        <div class="netflix-modal-content">
+            <div class="modal-close">&times;</div>
+            <div class="modal-hero">
+                <div class="modal-hero-overlay"></div>
+                <img id="modal-img" src="" alt="Expert" class="modal-hero-img">
+                <div class="modal-hero-text">
+                    <h2 id="modal-name">Nombre</h2>
+                    <div class="modal-meta">
+                        <span id="modal-match" style="color: #46d369; font-weight: bold;">98% Match</span>
+                        <span id="modal-role" style="margin-left: 10px; color: #ccc;">Rol</span>
+                    </div>
+                    <p id="modal-story" class="modal-desc">Descripción...</p>
+                    <div class="modal-actions">
+                        <a href="https://wa.me/50688888888" target="_blank" class="btn-play">
+                            <i class="fas fa-calendar-check"></i> Reservar Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <a href="tel:+50688888888" class="float-btn phone" title="Llamar">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/50688888888" target="_blank" class="float-btn whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Service Detail Modal (Shared for Bento Grid) -->
+    <div id="svc-modal" class="svc-modal">
+        <div class="svc-modal-overlay" onclick="closeServiceModal()"></div>
+        <div class="svc-modal-content">
+            <button class="svc-modal-close" onclick="closeServiceModal()">&times;</button>
+            <div class="svc-modal-grid">
+                <div class="svc-modal-visual">
+                    <img id="modal-img" src="" alt="Service Image">
+                </div>
+                <div class="svc-modal-info">
+                    <span id="modal-cat" class="modal-badge">CATEGORIA</span>
+                    <h2 id="modal-title">Nombre del Servicio</h2>
+                    <div id="modal-desc">Descripción detallada del servicio...</div>
+
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <span class="label">PRECIO</span>
+                            <span id="modal-price" class="value">₡00.00</span>
+                        </div>
+                    </div>
+
+                    <a id="modal-whatsapp" href="#" target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> CONSULTAR
+                    </a>
+
+                    <!-- Disqus Comments -->
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color:var(--primary-gold); margin-bottom:15px;">Comentarios</h4>
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js?v=10"></script>
+    <script src="js/cache-manager.js?v=10"></script>
+    <script src="js/reviews-loader.js?v=10"></script>
+    <script src="js/content-loader.js?v=10"></script>
+    <script src="js/services-loader.js?v=10"></script>
+    <script src="js/protection.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+
+    <!-- Disqus Count Script -->
+    <script id="dsq-count-scr" src="//barberiacr.disqus.com/count.js" async></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69768af23959f4197f8394b6/1jfrgtgsl';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia & Legado | Barbería Premium</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="about-page-body">
+    <div class="spotlight"></div>
+
+    <!-- Navbar -->
+    <!-- Navbar (Don Barber Style) -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Left: Logo -->
+            <a href="index.html" class="logo">BARBERIA<span>PURAVIDA</span></a>
+
+            <!-- Right: Utilities + Hamburger -->
+            <div class="nav-right">
+                <!-- Book CTA -->
+                <a href="reserva.html" class="nav-book-btn" data-i18n="nav_book">RESERVAR CITA</a>
+
+                <!-- Phone (Desktop) -->
+                <a href="tel:+50688888888" class="nav-phone">+506 8888-8888</a>
+
+                <!-- Lang -->
+                <button class="nav-lang">ES</button>
+
+                <!-- Hamburger -->
+                <div class="hamburger-minimal" id="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Hidden Full Menu (Overlay) -->
+            <div class="nav-overlay-menu" id="nav-menu">
+                <a href="index.html" class="overlay-link" data-i18n="nav_home">Inicio</a>
+                <a href="servicios.html" class="overlay-link" data-i18n="nav_services">Servicios</a>
+                <a href="reserva.html" class="overlay-link" data-i18n="nav_experts">Expertos</a>
+                <a href="index.html#contacto" class="overlay-link" data-i18n="nav_contact">Contacto</a>
+                <a href="acerca.html" class="overlay-link active" data-i18n="nav_about">Historia</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO PARALLAX: EQUIPO -->
+    <header class="about-hero">
+        <div class="about-hero-bg" style="background-image: url('img/equipo/equipo_todos.png');"></div>
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content container">
+            <h1 class="about-title fade-in-up" data-i18n="about_title">EL LEGADO</h1>
+            <p class="about-subtitle fade-in-up delay-2" data-i18n="about_subtitle">MÁS QUE CORTES, FORJAMOS IDENTIDAD.
+            </p>
+        </div>
+    </header>
+
+    <!-- 2. SCROLL STORYTELLING: ORIGINS -->
+    <section class="story-section section-padding">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-text-col">
+                    <h2 class="section-title text-left scroll-reveal" data-i18n="about_origins_title">NUESTROS
+                        <br><span>ORÍGENES</span>
+                    </h2>
+                    <div class="story-line scroll-reveal delay-1"></div>
+                    <p class="story-p scroll-reveal delay-2" data-i18n="about_origins_p1">
+                        Todo comenzó con una navaja oxidada y un sueño en 1995. Fundada por Don Manuel,
+                        nuestra barbería nación como un refugio para caballeros que buscaban algo más que un corte
+                        rápido.
+                    </p>
+                    <p class="story-p scroll-reveal delay-3" data-i18n="about_origins_p2">
+                        En una era dominada por la prisa, decidimos detener el tiempo. Recuperamos el arte perdido
+                        de la toalla caliente, el afeitado clásico y la conversación genuina. Aquí, no eres un cliente,
+                        eres parte de una hermandad.
+                    </p>
+                </div>
+                <div class="story-img-col scroll-reveal-right">
+                    <div class="img-frame-premium">
+                        <img src="img/hero/barberia_heroimagen1.jpg" alt="Vintage Style" class="story-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. IMMERSIVE PARALLAX: LOCAL -->
+    <section class="immersive-local">
+        <div class="immersive-bg" style="background-image: url('img/local/localimagen.jpg');"></div>
+        <div class="immersive-content">
+            <h2 class="immersive-text" data-i18n="about_parallax_title">MÁS QUE UNA BARBERÍA</h2>
+            <p class="immersive-sub" data-i18n="about_parallax_sub">DONDE LA TRADICIÓN SE ENCUENTRA CON EL LUJO</p>
+        </div>
+    </section>
+
+    <!-- 4. PHILOSOPHY SCROLL -->
+    <section class="philosophy-section section-padding">
+        <div class="container">
+            <div class="philo-container">
+                <div class="philo-item">
+                    <span class="philo-num">01</span>
+                    <h3 data-i18n="philo_1_title">PRECISIÓN</h3>
+                    <p data-i18n="philo_1_desc">Cada cabello cuenta. No aceptamos nada menos que la perfección
+                        geométrica.</p>
+                </div>
+                <div class="philo-item">
+                    <span class="philo-num">02</span>
+                    <h3 data-i18n="philo_2_title">ESTILO</h3>
+                    <p data-i18n="philo_2_desc">No seguimos modas pasajeras. Creamos tendencias que perduran en el
+                        tiempo.</p>
+                </div>
+                <div class="philo-item">
+                    <span class="philo-num">03</span>
+                    <h3 data-i18n="philo_3_title">RESPETO</h3>
+                    <p data-i18n="philo_3_desc">Respeto por la herramienta, respeto por el oficio, respeto por el
+                        caballero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GALLERY MASONRY (Premium Grid) -->
+    <section class="gallery-section">
+        <div class="gallery-track">
+            <!-- Simulated Infinite Scroll with existing images -->
+            <img src="img/equipo/Luis1.png" alt="Barber Art">
+            <img src="img/equipo/Jason2.png" alt="Barber Art">
+            <img src="img/equipo/Michael3.png" alt="Barber Art">
+            <img src="img/equipo/Leonel4.png" alt="Barber Art">
+            <img src="img/equipo/Ramon5.png" alt="Barber Art">
+            <img src="img/equipo/Luis1.png" alt="Barber Art"> <!-- Repeat for effect -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="netflix-footer">
+        <div class="container">
+            <div class="footer-top" data-i18n="about_footer_ready">
+                ¿Listo para la experiencia? <a href="reserva.html">Reserva tu silla.</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 Barbería Premium. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js?v=10"></script>
+    <script src="js/protection.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+    <script>
+        // Custom Inline Parallax Logic for this page specifically
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroBg = document.querySelector('.about-hero-bg');
+            const immersiveBg = document.querySelector('.immersive-bg');
+
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.5}px) scale(1.1)`;
+            }
+
+            // Immersive Parallax
+            if (immersiveBg) {
+                const sectionTop = document.querySelector('.immersive-local').offsetTop;
+                const dist = scrolled - sectionTop;
+                if (scrolled + window.innerHeight > sectionTop) {
+                    immersiveBg.style.transform = `translateY(${dist * 0.2}px)`;
+                }
+            }
+        });
+
+        // Intersection Observer for Text Reveals
+        const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 }); // 10% visible triggers it
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <a href="tel:+50688888888" class="float-btn phone" title="Llamar">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/50688888888" target="_blank" class="float-btn whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- NextWeb Floating Watermark -->
+    <a href="#" class="nextweb-floating">
+        <img src="img/nextweb_logo.jpg" alt="NextWeb CR">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69768af23959f4197f8394b6/1jfrgtgsl';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

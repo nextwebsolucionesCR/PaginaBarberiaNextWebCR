@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Cita | Barbería Premium</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="spotlight"></div>
+
+    <!-- Navbar (Don Barber Style) -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Left: Logo -->
+            <a href="index.html" class="logo">BARBERIA<span>PURAVIDA</span></a>
+
+            <!-- Right: Utilities + Hamburger -->
+            <div class="nav-right">
+                <!-- Book CTA -->
+                <a href="reserva.html" class="nav-book-btn" style="border-bottom-color: #fff;">RESERVAR CITA</a>
+
+                <!-- Phone (Desktop) -->
+                <a href="tel:+50688888888" class="nav-phone">+506 8888-8888</a>
+
+                <!-- Lang -->
+                <button class="nav-lang">ES</button>
+
+                <!-- Hamburger -->
+                <div class="hamburger-minimal" id="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Hidden Full Menu (Overlay) -->
+            <div class="nav-overlay-menu" id="nav-menu">
+                <a href="index.html" class="overlay-link" data-i18n="nav_home">Inicio</a>
+                <a href="index.html#servicios" class="overlay-link" data-i18n="nav_services">Servicios</a>
+                <a href="reserva.html" class="overlay-link active" data-i18n="nav_experts">Expertos</a>
+                <a href="index.html#contacto" class="overlay-link" data-i18n="nav_contact">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Simple -->
+    <header class="section-padding" style="padding-top: 150px; padding-bottom: 50px; text-align: center;">
+        <div class="container">
+            <h1 class="section-title" data-i18n="reserva_title">ELIGE A TU <br> <span>MAESTRO</span></h1>
+            <p class="section-subtitle" data-i18n="reserva_subtitle">Selecciona un barbero para ver disponibilidad y
+                reservar</p>
+        </div>
+    </header>
+
+    <!-- Experts Section (Moved from Index) -->
+    <section id="equipo" class="section-padding" style="padding-top: 20px;">
+        <div class="container">
+            <!-- Cards container -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px;">
+
+                <!-- Card 1 -->
+                <div class="netflix-card reveal" data-name="Luis Cut" data-role="Barbero Senior"
+                    data-role-key="role_senior_barber" data-image="img/equipo/Luis1.png" data-match="98% Match"
+                    data-story-key="story_luis"
+                    data-story="Con más de 10 años de experiencia, Luis comenzó su viaje en las barberías clásicas de La Habana. Su especialidad es el corte tradicional a tijera y el afeitado con toallas calientes.">
+
+                    <!-- HOVER MENU (Top Border) -->
+                    <div class="card-hover-menu">
+                        <button class="card-btn-about" data-i18n="btn_about_me">SOBRE MÍ</button>
+                        <a href="https://calendar.app.google/q7bz5bKtUcHB64CS9" target="_blank" class="card-btn-book"
+                            data-i18n="btn_book_now">RESERVAR</a>
+                    </div>
+
+                    <div class="netflix-border"></div>
+                    <img src="img/equipo/Luis1.png" alt="Luis" class="netflix-img">
+                    <div class="netflix-overlay">
+                        <div class="netflix-info">
+                            <h3>Luis Cut</h3>
+                            <p style="color: var(--primary-gold);" data-i18n="role_senior_barber">Barbero Senior</p>
+                            <div style="font-size: 0.7rem; color: #888; margin-top: 5px;">98% Match</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="netflix-card reveal" data-name="Jason Fade" data-role="Diseñador"
+                    data-role-key="role_designer" data-image="img/equipo/Jason2.png" data-match="96% Match"
+                    data-story-key="story_jason"
+                    data-story="Jason es el artista urbano del equipo. Especializado en 'Fades' perfectos y diseños geométricos. Si buscas algo moderno y atrevido, él es tu hombre.">
+
+                    <!-- HOVER MENU -->
+                    <div class="card-hover-menu">
+                        <button class="card-btn-about" data-i18n="btn_about_me">SOBRE MÍ</button>
+                        <a href="https://calendar.app.google/q7bz5bKtUcHB64CS9" target="_blank" class="card-btn-book"
+                            data-i18n="btn_book_now">RESERVAR</a>
+                    </div>
+
+                    <div class="netflix-border"></div>
+                    <img src="img/equipo/Jason2.png" alt="Jason" class="netflix-img">
+                    <div class="netflix-overlay">
+                        <div class="netflix-info">
+                            <h3>Jason Fade</h3>
+                            <p style="color: var(--primary-blue);" data-i18n="role_designer">Diseñador</p>
+                            <div style="font-size: 0.7rem; color: #888; margin-top: 5px;">96% Match</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="netflix-card reveal" data-name="Michael Master" data-role="Estilista"
+                    data-role-key="role_stylist" data-image="img/equipo/Michael3.png" data-match="99% Match"
+                    data-story-key="story_michael"
+                    data-story="Michael combina la barbería con el estilismo de alta gama. Experto en visagismo para recomendarte el corte que mejor se adapta a tu estructura ósea.">
+
+                    <!-- HOVER MENU -->
+                    <div class="card-hover-menu">
+                        <button class="card-btn-about" data-i18n="btn_about_me">SOBRE MÍ</button>
+                        <a href="https://calendar.app.google/q7bz5bKtUcHB64CS9" target="_blank" class="card-btn-book"
+                            data-i18n="btn_book_now">RESERVAR</a>
+                    </div>
+
+                    <div class="netflix-border"></div>
+                    <img src="img/equipo/Michael3.png" alt="Michael" class="netflix-img">
+                    <div class="netflix-overlay">
+                        <div class="netflix-info">
+                            <h3>Michael Master</h3>
+                            <p style="color: #fff;" data-i18n="role_stylist">Estilista</p>
+                            <div style="font-size: 0.7rem; color: #888; margin-top: 5px;">99% Match</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Leonel -->
+                <div class="netflix-card reveal" data-name="Leonel Barber" data-role="Barbero Clásico"
+                    data-role-key="role_classic_barber" data-image="img/equipo/Leonel4.png" data-match="95% Match"
+                    data-story-key="story_leonel"
+                    data-story="Leonel es el guardián de la vieja escuela. Especialista en afeitado con navaja, toallas calientes y cortes de caballero tradicionales. Precisión y respeto por el oficio.">
+
+                    <!-- HOVER MENU -->
+                    <div class="card-hover-menu">
+                        <button class="card-btn-about" data-i18n="btn_about_me">SOBRE MÍ</button>
+                        <a href="https://calendar.app.google/q7bz5bKtUcHB64CS9" target="_blank" class="card-btn-book"
+                            data-i18n="btn_book_now">RESERVAR</a>
+                    </div>
+
+                    <div class="netflix-border"></div>
+                    <img src="img/equipo/Leonel4.png" alt="Leonel" class="netflix-img">
+                    <div class="netflix-overlay">
+                        <div class="netflix-info">
+                            <h3>Leonel Barber</h3>
+                            <p style="color: var(--primary-gold);" data-i18n="role_classic_barber">Barbero Clásico</p>
+                            <div style="font-size: 0.7rem; color: #888; margin-top: 5px;">95% Match</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Ramon -->
+                <div class="netflix-card reveal" data-name="Ramon Style" data-role="Estilista Junior"
+                    data-role-key="role_junior_stylist" data-image="img/equipo/Ramon5.png" data-match="94% Match"
+                    data-story-key="story_ramon"
+                    data-story="Ramon aporta frescura y nuevas tendencias al equipo. Su pasión por los cortes modernos y su atención al detalle lo convierten en una promesa de la barbería.">
+
+                    <!-- HOVER MENU -->
+                    <div class="card-hover-menu">
+                        <button class="card-btn-about" data-i18n="btn_about_me">SOBRE MÍ</button>
+                        <a href="https://calendar.app.google/q7bz5bKtUcHB64CS9" target="_blank" class="card-btn-book"
+                            data-i18n="btn_book_now">RESERVAR</a>
+                    </div>
+
+                    <div class="netflix-border"></div>
+                    <img src="img/equipo/Ramon5.png" alt="Ramon" class="netflix-img">
+                    <div class="netflix-overlay">
+                        <div class="netflix-info">
+                            <h3>Ramon Style</h3>
+                            <p style="color: #fff;" data-i18n="role_junior_stylist">Estilista Junior</p>
+                            <div style="font-size: 0.7rem; color: #888; margin-top: 5px;">94% Match</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NETFLIX STYLE MODAL -->
+    <div id="expert-modal" class="netflix-modal-backdrop">
+        <div class="netflix-modal-content">
+            <div class="modal-close">&times;</div>
+            <div class="modal-hero">
+                <div class="modal-hero-overlay"></div>
+                <img id="modal-img" src="" alt="Expert" class="modal-hero-img">
+            </div>
+
+            <div class="modal-hero-text">
+                <h2 id="modal-name">Nombre</h2>
+                <div class="modal-meta">
+                    <span id="modal-match" style="color: #46d369; font-weight: bold;">98% Match</span>
+                    <span id="modal-role" style="margin-left: 10px; color: #ccc;">Rol</span>
+                </div>
+                <p id="modal-story" class="modal-desc">Descripción...</p>
+                <div class="modal-actions">
+                    <!-- LINK A GOOGLE CALENDAR -->
+                    <a href="https://calendar.app.google/q7bz5bKtUcHB64CS9" target="_blank" class="btn-play">
+                        <i class="fas fa-calendar-check"></i> <span data-i18n="btn_book_now_2">RESERVAR AHORA</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NETFLIX STYLE FOOTER -->
+    <footer class="netflix-footer">
+        <div class="container">
+            <div class="footer-top">
+                <span data-i18n="footer_questions">¿Preguntas? Llama al</span> <a href="tel:+50688888888">8888-8888</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 Barbería Premium. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js?v=10"></script>
+    <script src="js/protection.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <a href="tel:+50688888888" class="float-btn phone" title="Llamar">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/50688888888" target="_blank" class="float-btn whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- NextWeb Floating Watermark -->
+    <a href="#" class="nextweb-floating">
+        <img src="img/nextweb_logo.jpg" alt="NextWeb CR">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69768af23959f4197f8394b6/1jfrgtgsl';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

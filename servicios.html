@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Barbería PuraVida</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Playfair+Display:wght@400;700&family=Oswald:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=9">
+</head>
+
+<body class="services-page-body">
+
+    <!-- Navbar -->
+    <!-- Navbar (Don Barber Style) -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Left: Logo -->
+            <a href="index.html" class="logo">BARBERIA<span>PURAVIDA</span></a>
+
+            <!-- Right: Utilities + Hamburger -->
+            <div class="nav-right">
+                <!-- Book CTA -->
+                <a href="reserva.html" class="nav-book-btn" data-i18n="nav_book">RESERVAR CITA</a>
+
+                <!-- Phone (Desktop) -->
+                <a href="tel:+50688888888" class="nav-phone">+506 8888-8888</a>
+
+                <!-- Lang -->
+                <button class="nav-lang">ES</button>
+
+                <!-- Hamburger -->
+                <div class="hamburger-minimal" id="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Hidden Full Menu (Overlay) -->
+            <div class="nav-overlay-menu" id="nav-menu">
+                <a href="index.html" class="overlay-link" data-i18n="nav_home">Inicio</a>
+                <a href="servicios.html" class="overlay-link active" data-i18n="nav_services">Servicios</a>
+                <a href="reserva.html" class="overlay-link" data-i18n="nav_experts">Expertos</a>
+                <a href="index.html#contacto" class="overlay-link" data-i18n="nav_contact">Contacto</a>
+                <a href="acerca.html" class="overlay-link" data-i18n="nav_about">Nosotros</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero (Minimalist) -->
+    <header class="svc-hero-v2">
+        <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="svc-title-v2" data-i18n="svc_hero_title">CATÁLOGO DE ESTILO</h1>
+            <div class="gold-separator"></div>
+            <p class="svc-subtitle-v2" data-i18n="svc_hero_subtitle">Selecciona tu próxima experiencia</p>
+        </div>
+    </header>
+
+    <!-- Main Content: Glass Grid -->
+    <div class="svc-container-v2">
+        <div id="loading-indicator" style="text-align: center; padding: 100px 0;">
+            <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--primary-gold);"></i>
+            <p style="margin-top: 20px; font-family: 'Manrope', sans-serif;" data-i18n="svc_loading">Cargando
+                servicios...</p>
+        </div>
+    </div>
+
+    <!-- REUSED FOOTER -->
+    <footer class="netflix-footer" style="margin-top: 100px;">
+        <div class="container">
+            <p>&copy; 2026 Barbería PuraVida Premium. <span data-i18n="footer_rights">Todos los derechos
+                    reservados.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+    <!-- Service Detail Modal (Premium Glass) -->
+    <div id="svc-modal" class="svc-modal">
+        <div class="svc-modal-overlay" onclick="closeServiceModal()"></div>
+        <div class="svc-modal-content">
+            <button class="svc-modal-close" onclick="closeServiceModal()">&times;</button>
+            <div class="svc-modal-grid">
+                <div class="svc-modal-visual">
+                    <img id="modal-img" src="" alt="Service Image">
+                </div>
+                <div class="svc-modal-info">
+                    <span id="modal-cat" class="modal-badge" data-i18n="svc_modal_cat">CATEGORIA</span>
+                    <h2 id="modal-title">Nombre del Servicio</h2>
+                    <div id="modal-desc">Descripción detallada del servicio...</div>
+
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <span class="label" data-i18n="svc_modal_price">PRECIO</span>
+                            <span id="modal-price" class="value">₡00.00</span>
+                        </div>
+                    </div>
+
+                    <a id="modal-whatsapp" href="#" target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="svc_modal_btn">CONSULTAR</span>
+                    </a>
+
+                    <!-- Disqus Comments -->
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color:var(--primary-gold); margin-bottom:15px;" data-i18n="svc_modal_comments">
+                            Comentarios</h4>
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Logic -->
+    <script src="js/translations.js?v=10"></script>
+    <script src="js/cache-manager.js?v=10"></script> <!-- REQUIRED for services-loader -->
+    <script src="js/auth.js?v=10"></script> <!-- Auth util -->
+    <script src="js/services-loader.js?v=10"></script>
+    <script src="js/protection.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+
+    <!-- Disqus Count Script -->
+    <script id="dsq-count-scr" src="//barberiacr.disqus.com/count.js" async></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69768af23959f4197f8394b6/1jfrgtgsl';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <a href="tel:+50688888888" class="float-btn phone" title="Llamar">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/50688888888" target="_blank" class="float-btn whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- NextWeb Floating Watermark -->
+    <a href="#" class="nextweb-floating">
+        <img src="img/nextweb_logo.jpg" alt="NextWeb CR">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+</body>
+
+</html>
