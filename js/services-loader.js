@@ -362,7 +362,7 @@ function renderCard(item, container) {
             const tempDiv = document.createElement("div");
             tempDiv.innerHTML = item.NombreProducto;
             const cleanTitle = tempDiv.innerText.trim();
-            const phone = "50688888888";
+            const phone = "50670204207";
             const text = `Hola, me interesa el servicio: *${cleanTitle}*.`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
         });
