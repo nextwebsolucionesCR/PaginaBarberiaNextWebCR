@@ -157,6 +157,19 @@ const translations = {
         loc_btn_google: "Ir con Google",
         loc_btn_waze: "Ir con Waze",
 
+        // Privacidad
+        privacy_title: "Aviso de Privacidad",
+        privacy_subtitle: "Transparencia y Políticas del Sitio",
+        privacy_heading_ai: "Aviso sobre Contenido Visual y Uso de IA",
+        privacy_p1: "En <strong>Barbería PuraVida</strong> estamos comprometidos con la transparencia y el más alto nivel de creatividad para ofrecer a nuestros clientes una experiencia visual excepcional mediante nuestro sitio web.",
+        privacy_p2: "Con el objetivo de reflejar un estándar premium y explorar diversas estéticas y estilos, queremos hacer de su conocimiento público que <strong>gran parte de las imágenes y videos promocionales mostrados en esta plataforma han sido creados, desarrollados o mejorados utilizando herramientas de Inteligencia Artificial (IA) generativa y aprendizaje profundo</strong>.",
+        privacy_subheading_usage: "Fines y Uso Responsable",
+        privacy_li1: "<strong>Fines Estéticos y Conceptuales:</strong> Todo el material visual generado por IA se utiliza de manera completamente ilustrativa y artística, destinado a exhibir ideas, conceptos de estilo, tendencias y el nivel de sofisticación de nuestra barbería.",
+        privacy_li2: "<strong>Absoluta Ausencia de Suplantación de Identidad:</strong> Los rostros, individuos y figuras humanas retratados en los recursos generados <strong>son completamente ficticios y no existen en la vida real</strong>. Las herramientas de Inteligencia Artificial utilizadas construyen estas imágenes desde cero; por ende, <strong>no buscamos ni intentamos suplantar, imitar, representar o aprovechar la identidad, semejanza o derechos de imagen de ninguna persona natural, modelo, celebridad o cliente</strong>. Cualquier parecido con personas reales es una coincidencia involuntaria del algoritmo.",
+        privacy_li3: "<strong>Referencia Estilística y Resultados:</strong> Los cortes, arreglos de barba o estilos exhibidos representan nuestra calidad estética idealizada. Si bien nos esforzamos por alcanzar y superar estos estándares en nuestro local físico, cada resultado final en el mundo real dependerá de factores propios del cliente, como la estructura capilar y fisonomía de cada persona.",
+        privacy_p3: "Agradecemos su comprensión y soporte continuo, ya que la innovación tecnológica es otra herramienta más en nuestra obsesión constante por el arte del cuidado del caballero. Ante cualquier duda directa o consulta que pueda surgir en torno a nuestro contenido o uso de redes e imagen, no dude en comunicarse mediante nuestras vías de contacto.",
+        privacy_last_updated: "Última actualización: Marzo 2026.",
+
         // JS Fallbacks
         js_badge_new: "NUEVO",
         js_badge_rec: "RECOMENDADO",
@@ -304,6 +317,19 @@ const translations = {
         loc_page_tamarindo_addr: "Main Street, Opposite Hotel Diria, Tamarindo.",
         loc_btn_google: "Go with Google",
         loc_btn_waze: "Go with Waze",
+
+        // Privacy
+        privacy_title: "Privacy Notice",
+        privacy_subtitle: "Transparency and Site Policies",
+        privacy_heading_ai: "Notice on Visual Content and AI Usage",
+        privacy_p1: "At <strong>Barbería PuraVida</strong>, we are committed to transparency and the highest level of creativity to provide our clients with an exceptional visual experience through our website.",
+        privacy_p2: "In order to reflect a premium standard and explore various aesthetics and styles, we want to make it publicly known that <strong>much of the promotional images and videos shown on this platform have been created, developed, or improved using generative Artificial Intelligence (AI) and deep learning tools</strong>.",
+        privacy_subheading_usage: "Purposes and Responsible Use",
+        privacy_li1: "<strong>Aesthetic and Conceptual Purposes:</strong> All AI-generated visual material is used completely illustratively and artistically, intended to showcase ideas, style concepts, trends, and the level of sophistication of our barbershop.",
+        privacy_li2: "<strong>Absolute Absence of Identity Theft:</strong> The faces, individuals, and human figures portrayed in the generated resources <strong>are completely fictional and do not exist in real life</strong>. The Artificial Intelligence tools used build these images from scratch; therefore, <strong>we do not seek or attempt to impersonate, imitate, represent, or take advantage of the identity, likeness, or image rights of any natural person, model, celebrity, or client</strong>. Any resemblance to real people is an involuntary coincidence of the algorithm.",
+        privacy_li3: "<strong>Stylistic Reference and Results:</strong> The cuts, beard trims, or styles exhibited represent our idealized aesthetic quality. While we strive to achieve and surpass these standards in our physical location, each final result in the real world will depend on factors unique to the client, such as hair structure and physiognomy.",
+        privacy_p3: "We appreciate your understanding and continued support, as technological innovation is just another tool in our constant obsession with the art of gentlemen's grooming. For any direct doubts or queries that may arise regarding our content or use of networks and image, please do not hesitate to contact us through our contact channels.",
+        privacy_last_updated: "Last updated: March 2026.",
 
         // JS Fallbacks
         js_badge_new: "NEW",
